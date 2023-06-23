@@ -1,0 +1,201 @@
+kind: pipeline
+name: oas_cliente_ci
+
+trigger:
+  event:
+    exclude:
+      - tag
+
+steps:
+- name: check_readme
+  image: jjvargass/qa_develoment:latest
+  failure: ignore
+  commands:
+  - python /app/check_readme.py
+  when:
+    branch:
+    - develop
+    - feature/*
+    - hotfix/*
+    - release/*
+    event:
+    - push
+
+- name: check_branch
+  image: jjvargass/qa_develoment:latest
+  failure: ignore
+  commands:
+  - python /app/check_branch.py -H ${DRONE_GIT_HTTP_URL}
+  when:
+    branch:
+    - develop
+    - feature/*
+    - hotfix/*
+    - release/*
+    event:
+    - push
+
+# Este step no es objetivo, debe revisarse. Ver:
+# https://github.com/udistrital/arka_cliente/commit/37e3ece10d52cae1303d837ad0e8a6ca1fb7a549
+- name: check_commits
+  image: jjvargass/qa_develoment:latest
+  failure: ignore
+  commands:
+  - python /app/check_commits.py
+  when:
+    branch:
+    - develop
+    - feature/*
+    - hotfix/*
+    - release/*
+    event:
+    - push
+
+- name: preparar_npm
+  image: node:14
+  commands:
+    - npm ci # Instalación limpia
+    - node --version
+    - npm --version
+  when:
+    branch: # Colocar las ramas que requieran npm
+      - dependabot/**
+      - develop
+      - feature/*
+      - hotfix/*
+      - master
+      - release/*
+      - unitest
+
+# TODO: Ajustar para usar jest en vez de karma, se demora demasiado...
+# https://hubci.portaloas.udistrital.edu.co/udistrital/arka_cliente/935/1/5
+# Se dejará comentado mientras tanto
+- name: prueba_unitarias
+  failure: ignore
+  image: node:14
+  commands:
+  - npm run test
+  when:
+    branch:
+    # - feature/*
+    # - hotfix/*
+    - unitest
+
+- name:  pruebas_linter
+  image: node:14
+  commands:
+  - npm run lint
+  when:
+    branch:
+    - develop
+    - feature/*
+    - hotfix/*
+    event:
+    - push
+
+- name: run_sonar_scanner
+  image: aosapps/drone-sonar-plugin
+  settings:
+    sonar_host:
+      from_secret: SONAR_HOST
+    sonar_token:
+      from_secret: SONAR_TOKEN
+  exclusions: "**/node_modules/**,**/*.spec.ts,documentation/**"
+  when:
+    branch:
+    - develop
+    - feature/*
+    - release/*
+    event:
+    - push
+
+- name: nodejs_release
+  image: node:14
+  commands:
+  - npm run build:test
+  when:
+    branch:
+    - dependabot/**
+    - develop
+    - feature/*
+    - release/*
+    event:
+    - push
+
+- name: nodejs_master
+  image: node:14
+  commands:
+  - npm run build:prod
+  when:
+    branch:
+    - master
+    - hotfix/*
+    event:
+    - push
+
+- name: publish_s3_release
+  image: plugins/s3
+  settings:
+    bucket: cliente-pruebas
+    access_key:
+      from_secret: aws_access_key_id
+    secret_key:
+      from_secret: aws_secret_access_key
+    region: us-east-1
+    source: dist/**/*
+    target: /${DRONE_REPO_NAME}
+    strip_prefix: dist/
+  when:
+    branch:
+    - release/*
+    event:
+    - push
+
+- name: publish_s3_master
+  image: plugins/s3
+  settings:
+    bucket: cliente-prod
+    access_key:
+      from_secret: aws_access_key_id
+    secret_key:
+      from_secret: aws_secret_access_key
+    region: us-east-1
+    source: dist/**/*
+    target: /${DRONE_REPO_NAME}
+    strip_prefix: dist/
+  when:
+    branch:
+    - master
+    event:
+    - push
+
+- name: notify_telegram
+  failure: ignore
+  image: appleboy/drone-telegram
+  settings:
+    token:
+      from_secret: telegram_token
+    to:
+      from_secret: telegram_to
+    format: html
+    message: >
+      {{#success build.status}}
+        ✅ <a href="{{build.link}}">SUCCESS</a> <b>Build #{{build.number}}</b> (type: <code>{{ build.event }}</code>)
+        <b>Repo:</b><code>{{repo.name}}</code> <b>Branch:</b><code>{{commit.branch}}</code>
+        <b>Commit:</b> <a href="{{commit.link}}">{{truncate commit.sha 7}}</a>
+        <b>Autor:</b>{{commit.author}} <code>&#128526 </code>
+      {{else}}
+        ❌ <a href="{{build.link}}">FAILURE</a> <b>Build #{{build.number}}</b> (type: <code>{{ build.event }}</code>)
+        <b>Repo:</b><code>{{repo.name}}</code> <b>Branch:</b> <code>{{commit.branch}}</code>
+        <b>Commit:</b> <a href="{{commit.link}}">{{truncate commit.sha 7}}</a>
+        <b>Autor:</b>{{commit.author}} <code>&#128549 </code>
+      {{/success}}
+  when:
+    branch:
+    - release/*
+    - master
+    event:
+    - push
+    status:
+    - failure
+    - success
