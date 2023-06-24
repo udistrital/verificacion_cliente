@@ -248,6 +248,8 @@
     }
   },
   "GLOBAL": {
+    "verificarFirma": "Verificar Firma",
+    "volver": "Volver",
     "Errores": {
       "ErrorTercero": "Enter a valid third-party",
       "ErrorDependencia": "Enter a valid agency",
@@ -885,7 +887,6 @@
     "registrar_nueva_salida": "New Output",
     "elementos_entrada": "Entry Elements",
     "elementos_salida": "Elementos Salida",
-    "volver": "Return",
     "factura": "Bill",
     "tipo_bien": "Type of Asset",
     "placeholder_tipo_bien": "Type of Asset",

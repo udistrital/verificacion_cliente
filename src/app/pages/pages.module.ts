@@ -8,10 +8,6 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { VerificarComponent } from './verificar/verificar.component';
 
-const PAGES_COMPONENTS = [
-  PagesComponent,
-];
-
 @NgModule({
   imports: [
     PagesRoutingModule,
@@ -21,7 +17,7 @@ const PAGES_COMPONENTS = [
     TranslateModule,
   ],
   declarations: [
-    ...PAGES_COMPONENTS,
+    PagesComponent,
     VerificarComponent,
   ],
 })

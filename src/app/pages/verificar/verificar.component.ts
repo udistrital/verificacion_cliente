@@ -1,6 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, FormControl, FormArray, AbstractControl } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { GestorDocumentalService } from '../../helpers/gestor_documental/gestorDocumentalHelper';
@@ -14,6 +13,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class VerificarComponent implements OnInit {
 
   doc: any;
+  firmaId: string;
+
   constructor(
     private translate: TranslateService,
     private gestorDocumentalService: GestorDocumentalService,
@@ -21,10 +22,13 @@ export class VerificarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.downloadFile();
   }
 
-  public downloadFile() {
+  public checkFirma() {
+    if (!this.firmaId || this.firmaId.length !== 36) {
+      return;
+    }
+
     Swal({
       title: 'Por favor espera, cargando documento',
       allowOutsideClick: false,
@@ -33,20 +37,20 @@ export class VerificarComponent implements OnInit {
       },
     });
 
-    const filesToGet = [{
-      Id: 146897,
-    }];
-
-    this.gestorDocumentalService.getOne(146897)
+    this.gestorDocumentalService.getOne(this.firmaId)
       .subscribe(async (data: any) => {
-        // console.log(data.Data[0].Nuxeo)
-        const url = await this.gestorDocumentalService.getUrlFile(data.Data[0].Nuxeo.file, data.Data[0].Nuxeo['file:content']['mime-type']);
+        const url = await this.gestorDocumentalService.getUrlFile(data.res[0].file, data.res[0]['file:content']['mime-type']);
         if (url) {
           this.doc = this.sanitization.bypassSecurityTrustResourceUrl(url.toString());
         }
 
         Swal.close();
       });
+  }
+
+  public onVolver() {
+    this.doc = undefined;
+    this.firmaId = '';
   }
 
 }

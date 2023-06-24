@@ -248,6 +248,8 @@
     }
   },
   "GLOBAL": {
+    "verificarFirma": "Verificar Firma",
+    "volver": "Volver",
     "Errores": {
       "ErrorTercero": "Ingrese un tercero válido",
       "ErrorCuenta": "Cuenta no encontrada.",
@@ -886,7 +888,6 @@
     "registrar_nueva_salida": "Registrar nueva Salida",
     "elementos_entrada": "Elementos Entrada",
     "elementos_salida": "Elementos Salida",
-    "volver": "Volver",
     "factura": "Factura",
     "tipo_bien": "Tipo Bien",
     "placeholder_tipo_bien": "Tipo de Bien o Servicio",

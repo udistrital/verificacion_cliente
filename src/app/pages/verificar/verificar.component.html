@@ -1,1 +1,23 @@
-<iframe *ngIf="doc" width="100%" height="100%" [src]="doc"></iframe>
+<mat-card *ngIf="!doc" class="container">
+    <mat-card-title>A continuación, ingrese la firma indicada en el documento que desea verificar:</mat-card-title>
+    <mat-form-field class="input-firma">
+        <mat-label>Firma</mat-label>
+        <input matInput placeholder="Firma" [(ngModel)]="firmaId">
+    </mat-form-field>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" class="float-right text-uppercase" (click)="checkFirma()">
+            {{'GLOBAL.verificarFirma' | translate}}
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+<mat-card  *ngIf="doc" class="container file">
+    <mat-card-title>Este es el documento encontrado con la firma indicada:</mat-card-title>
+    <iframe width="100%" height="100%" [src]="doc"></iframe>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" class="float-right text-uppercase" (click)="onVolver()">
+            {{'GLOBAL.volver' | translate}}
+        </button>
+    </mat-card-actions>
+</mat-card>
+
