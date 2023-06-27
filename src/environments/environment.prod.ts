@@ -16,8 +16,8 @@ export const environment = {
     CLIENTE_ID: '4h6flKY9tkUfQyMIf2EsZoF9ERoa',
     RESPONSE_TYPE: 'id_token token',
     SCOPE: 'openid email role documento',
-    REDIRECT_URL: 'https://arka.portaloas.udistrital.edu.co',
+    REDIRECT_URL: 'https://verificacion.portaloas.udistrital.edu.co',
     SIGN_OUT_URL: 'https://autenticacion.portaloas.udistrital.edu.co/oidc/logout',
-    SIGN_OUT_REDIRECT_URL: 'https://arka.portaloas.udistrital.edu.co',
+    SIGN_OUT_REDIRECT_URL: 'https://verificacion.portaloas.udistrital.edu.co',
   },
 };
