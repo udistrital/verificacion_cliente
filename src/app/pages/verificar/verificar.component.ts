@@ -41,6 +41,7 @@ export class VerificarComponent implements OnInit {
       .subscribe(async (data: any) => {
         const url = await this.gestorDocumentalService.getUrlFile(data.res[0].file, data.res[0]['file:content']['mime-type']);
         if (url) {
+          console.info(url);
           this.doc = this.sanitization.bypassSecurityTrustResourceUrl(url.toString());
         }
 
