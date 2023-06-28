@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 export class LoginComponent implements OnInit {
 
   constructor(private autenticacion: ImplicitAutenticationService) { }
-  appname = 'arka';
+  appname = 'verificacion';
   basePathAssets = environment.ASSETS_SERVICE;
   @Input('isloading') isloading: boolean = false;
   @Output() loginEvent: EventEmitter<any> = new EventEmitter();

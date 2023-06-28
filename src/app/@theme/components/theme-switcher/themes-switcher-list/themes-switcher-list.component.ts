@@ -36,10 +36,6 @@ export class ThemeSwitcherListComponent {
       title: 'Corporate',
       key: 'corporate',
     },
-    {
-      title: 'ARKA II',
-      key: 'arka2',
-    },
   ];
 
   constructor(
