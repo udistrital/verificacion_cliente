@@ -95,28 +95,11 @@ import {
   NbTooltipModule,
   NbCalendarKitModule,
 } from '@nebular/theme';
-import { NbSecurityModule } from '@nebular/security';
 
-import {
-  FooterComponent,
-  HeaderComponent,
-  ThemeSettingsComponent,
-  ThemeSwitcherComponent,
-  ThemeSwitcherListComponent,
-} from './components';
-import {
-  CapitalizePipe,
-  PluralPipe,
-  RoundPipe,
-  TimingPipe,
-  NumberWithCommasPipe,
-} from './pipes';
-import {
-  OneColumnLayoutComponent,
-  SampleLayoutComponent,
-  ThreeColumnsLayoutComponent,
-  TwoColumnsLayoutComponent,
-} from './layouts';
+import { FooterComponent, HeaderComponent, ThemeSettingsComponent, ThemeSwitcherComponent, ThemeSwitcherListComponent } from './components';
+import { CapitalizePipe, PluralPipe, RoundPipe, TimingPipe, NumberWithCommasPipe } from './pipes';
+import { OneColumnLayoutComponent, SampleLayoutComponent, ThreeColumnsLayoutComponent, TwoColumnsLayoutComponent } from './layouts';
+
 import { DEFAULT_THEME } from './styles/theme.default';
 import { COSMIC_THEME } from './styles/theme.cosmic';
 import { CORPORATE_THEME } from './styles/theme.corporate';
@@ -124,21 +107,8 @@ import { UD_THEME } from './styles/theme.ud';
 import { TranslateModule } from '@ngx-translate/core';
 import { SelectDirective } from './directives/mouse-over-tree';
 import { ARKAII_THEME } from './styles/theme.arka2';
-import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG, NgxCurrencyModule } from 'ngx-currency';
 
 const BASE_MODULES = [CommonModule, FormsModule, ReactiveFormsModule];
-
-export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
-  align: 'right',
-  allowNegative: true,
-  decimal: ',',
-  precision: 2,
-  prefix: '$ ',
-  suffix: '',
-  thousands: '.',
-  allowZero: true,
-  nullable: false,
-};
 
 const NB_MODULES = [
   NbCardModule,
@@ -154,7 +124,6 @@ const NB_MODULES = [
   NbPopoverModule,
   NbContextMenuModule,
   NgbModule,
-  NbSecurityModule, // *nbIsGranted directive,
   NbProgressBarModule,
   NbCalendarModule,
   NbCalendarRangeModule,
@@ -173,7 +142,6 @@ const NB_MODULES = [
   NbTooltipModule,
   NbCalendarKitModule,
   TranslateModule,
-  NgxCurrencyModule,
 ];
 
 const COMPONENTS = [
@@ -202,7 +170,6 @@ const PIPES = [
 ];
 
 const NB_THEME_PROVIDERS = [
-  { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },
   ...NbThemeModule.forRoot(
     {
       name: 'arka2',

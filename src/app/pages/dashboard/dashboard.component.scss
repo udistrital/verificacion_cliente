@@ -21,9 +21,12 @@
   }
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+h1, h2 {
+  text-align: center;
+  color: black;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
 }

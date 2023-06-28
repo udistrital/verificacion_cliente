@@ -18,7 +18,6 @@ import { ImplicitAutenticationService } from './utils/implicit_autentication.ser
 import { LoaderService } from './utils/load.service';
 import { UtilidadesService } from './utils/utilidades.service';
 import { AutenticationService } from './utils/authentication.service';
-import { SmartTableService } from './data/SmartTableService';
 
 const socialLinks = [
   {
@@ -89,7 +88,6 @@ export const NB_CORE_PROVIDERS = [
   LoaderService,
   UtilidadesService,
   AutenticationService,
-  SmartTableService,
 ];
 
 @NgModule({
@@ -102,7 +100,6 @@ export const NB_CORE_PROVIDERS = [
   declarations: [],
   providers: [
     AuthGuard,
-    SmartTableService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
