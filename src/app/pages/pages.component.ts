@@ -141,7 +141,7 @@ export class PagesComponent implements OnInit {
         url: '#/pages/dashboard',
       },
       {
-        title: this.translate.instant('MENU.main.inicio.name'),
+        title: this.translate.instant('MENU.main.verificar.name'),
         icon: 'nb-list',
         url: '#/pages/verificar',
       },

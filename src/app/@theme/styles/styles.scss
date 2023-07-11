@@ -3,7 +3,6 @@
 
 // framework component themes (styles tied to theme variables)
 @import '~@nebular/theme/styles/globals';
-@import '~@nebular/auth/styles/all';
 @import '~@nebular/bootstrap/styles/globals';
 // ...
 // @import url('https://pruebasassets.portaloas.udistrital.edu.co/gaia-style.css');
@@ -15,20 +14,20 @@
 @include mat-core();
 
 $my-blue: (
-  50: #991c1a,
-  100: #991c1a,
-  200: #991c1a,
-  300: #991c1a,
-  400: #991c1a,
-  500: #991c1a,
-  600: #991c1a,
-  700: #991c1a,
-  800: #991c1a,
-  900: #991c1a,
-  A100: #991c1a,
-  A200: #991c1a,
-  A400: #991c1a,
-  A700: #991c1a,
+  50: #005caf,
+  100: #005caf,
+  200: #005caf,
+  300: #005caf,
+  400: #005caf,
+  500: #005caf,
+  600: #005caf,
+  700: #005caf,
+  800: #005caf,
+  900: #005caf,
+  A100: #005caf,
+  A200: #005caf,
+  A400: #005caf,
+  A700: #005caf,
   contrast: (
     50: white,
     100: white,
@@ -66,7 +65,6 @@ $mat-mytheme: mat-light-theme($mat-mytheme-primary, $mat-mytheme-accent);
 
   // framework global styles
   @include nb-theme-global();
-  @include nb-auth-global();
   @include nb-bootstrap-global();
 
   // loading progress bar
@@ -74,8 +72,8 @@ $mat-mytheme: mat-light-theme($mat-mytheme-primary, $mat-mytheme-accent);
 };
 
 .error-field {
-  color:#a61e1c;
-  text-decoration-color: #a61e1c;
+  color:#005caf;
+  text-decoration-color: #005caf;
   text-decoration-line: underline;
 }
 
@@ -113,7 +111,7 @@ button[mat-flat-button] {
 }
 
 .plus {
-  color: #991c1a;
+  color: #005caf;
   cursor: pointer;
   padding: 1rem;
 }

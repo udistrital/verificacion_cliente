@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { ImplicitAutenticationService } from './@core/utils/implicit_autentication.service';
 import { environment } from '../environments/environment';
 
-const urlStyles = `@import url("${ environment.ASSETS_SERVICE }gaia-style.css");`;
+const urlStyles = `@import url("${ environment.ASSETS_SERVICE }urano-style.css");`;
 @Component({
   selector: 'ngx-app',
   styles: [ urlStyles ],

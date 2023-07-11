@@ -1,5 +1,5 @@
 @import '../@theme/styles/themes';
-@import url("https://pruebasassets.portaloas.udistrital.edu.co/gaia-style.css");
+@import url("https://pruebasassets.portaloas.udistrital.edu.co/urano-style.css");
 
 @include nb-install-component() {
   ::ng-deep router-outlet + * {
