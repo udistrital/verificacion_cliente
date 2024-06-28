@@ -25,11 +25,13 @@ export class FirmaElectronicaService {
     });
   }
 
-  getOne(firma: string) {
+  getOne(firma: string, fileUp: string, urlFileUp: string) {
     this.rqManager.setPath('FIRMA_ELECTRONICA_SERVICE');
     const payload = [
       {
         firma,
+        fileUp,
+        urlFileUp,
       },
     ];
     return this.rqManager.post('firma_electronica/verify', payload);

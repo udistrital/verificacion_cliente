@@ -36,4 +36,9 @@ export class PopUpManager {
         return this.showAlert('error', text,
             this.translate.instant('GLOBAL.error'));
     }
+
+    public showCautionAlert (text) {
+        return this.showAlert('warning', text,
+            this.translate.instant('Atención'));
+    }
 }
