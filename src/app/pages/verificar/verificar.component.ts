@@ -32,7 +32,7 @@ export class VerificarComponent implements OnInit {
 
   ngOnInit() {
   }
-  //Inicio captura documento
+  // Inicio captura documento
   onFileSelected(event) {
     const file: File = event.target.files[0];
     if (file) {
@@ -55,7 +55,7 @@ export class VerificarComponent implements OnInit {
   }
   loadPdf(): void {
     if (this.base64Output) {
-      //Mostrar en iframe base 64
+      // Mostrar en iframe base 64
       const binary = atob(this.base64Output.replace(/\s/g, ''));
       const len = binary.length;
       const buffer = new ArrayBuffer(len);
@@ -69,12 +69,12 @@ export class VerificarComponent implements OnInit {
       this.pdfURL = url;
     }
   }
-  //fin captura documento
+  // fin captura documento
   public checkFirma() {
     if (!this.firmaId || this.firmaId.length !== 36) {
       return;
     }
-    if (this.base64Output == null){
+    if (this.base64Output == null) {
       this.base64Output='';
     }
     Swal({
@@ -84,10 +84,10 @@ export class VerificarComponent implements OnInit {
         Swal.showLoading();
       },
     });
-    if (this.base64Output==null){
+    if (this.base64Output==null) {
       this.base64Output="";
     }
-    if (this.pdfURL==null){
+    if (this.pdfURL==null) {
       this.pdfURL="";
     }
     this.firmaElectronicaService.getOne(this.firmaId, this.base64Output, this.pdfURL)
@@ -100,7 +100,7 @@ export class VerificarComponent implements OnInit {
           this.doc = this.sanitization.bypassSecurityTrustResourceUrl(url.toString());
         }
         Swal.close();
-        if (!this.fileEqual){
+        if (!this.fileEqual) {
           this.popUpMan.showCautionAlert('Los documentos no coinciden');
         }
       });
