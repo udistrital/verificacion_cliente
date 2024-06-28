@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { GestorDocumentalService } from '../../helpers/gestor_documental/gestorDocumentalHelper';
+import { FirmaElectronicaService } from '../../helpers/gestor_documental/firmaElectronicaHelper';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -17,7 +17,7 @@ export class VerificarComponent implements OnInit {
 
   constructor(
     private translate: TranslateService,
-    private gestorDocumentalService: GestorDocumentalService,
+    private firmaElectronicaService: FirmaElectronicaService,
     private sanitization: DomSanitizer,
   ) { }
 
@@ -37,9 +37,9 @@ export class VerificarComponent implements OnInit {
       },
     });
 
-    this.gestorDocumentalService.getOne(this.firmaId)
+    this.firmaElectronicaService.getOne(this.firmaId)
       .subscribe(async (data: any) => {
-        const url = await this.gestorDocumentalService.getUrlFile(data.res[0].file, data.res[0]['file:content']['mime-type']);
+        const url = await this.firmaElectronicaService.getUrlFile(data.res[0].file, data.res[0]['file:content']['mime-type']);
         if (url) {
           console.info(url);
           this.doc = this.sanitization.bypassSecurityTrustResourceUrl(url.toString());
