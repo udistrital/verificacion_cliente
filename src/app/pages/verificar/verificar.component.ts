@@ -27,7 +27,7 @@ export class VerificarComponent implements OnInit {
     private translate: TranslateService,
     private firmaElectronicaService: FirmaElectronicaService,
     private sanitization: DomSanitizer,
-    private popUpMan : PopUpManager,
+    private popUpMan: PopUpManager,
   ) { }
 
   ngOnInit() {
@@ -36,13 +36,13 @@ export class VerificarComponent implements OnInit {
   onFileSelected(event) {
     const file: File = event.target.files[0];
     if (file) {
-      this.fileName = file.name
+      this.fileName = file.name;
       this.convertFile(file).subscribe(base64 => {
         this.base64Output = base64;
         this.loadPdf();
       });
     } else {
-      this.base64Output = "";
+      this.base64Output = '';
     }
   }
 
@@ -75,7 +75,7 @@ export class VerificarComponent implements OnInit {
       return;
     }
     if (this.base64Output == null) {
-      this.base64Output='';
+      this.base64Output = '';
     }
     Swal({
       title: 'Por favor espera, cargando documento',
@@ -84,11 +84,11 @@ export class VerificarComponent implements OnInit {
         Swal.showLoading();
       },
     });
-    if (this.base64Output==null) {
-      this.base64Output="";
+    if (this.base64Output == null) {
+      this.base64Output = '';
     }
-    if (this.pdfURL==null) {
-      this.pdfURL="";
+    if (this.pdfURL == null) {
+      this.pdfURL = '';
     }
     this.firmaElectronicaService.getOne(this.firmaId, this.base64Output, this.pdfURL)
       .subscribe(async (data: any) => {
@@ -109,7 +109,7 @@ export class VerificarComponent implements OnInit {
 
   public onVolver() {
     const inDoc = document.getElementById('inputDoc') as HTMLInputElement;
-    if (inDoc){
+    if (inDoc) {
       inDoc.value = '';
     }
     this.doc = undefined;
