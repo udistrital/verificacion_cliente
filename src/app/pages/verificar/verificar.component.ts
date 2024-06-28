@@ -114,8 +114,8 @@ export class VerificarComponent implements OnInit {
     }
     this.doc = undefined;
     this.firmaId = '';
-    this.fileName= '';
-    this.pdfURL='';
+    this.fileName = '';
+    this.pdfURL = '';
   }
 
 }
