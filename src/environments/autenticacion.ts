@@ -4,6 +4,5 @@ export const WSO2 = {
   CONF_MENU_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/configuracion_crud_api/v1/menu_opcion_padre/ArbolMenus/',
   CONFIGURACION_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/configuracion_crud_api/v1/',
   DOCUMENTO_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/documento_crud/v2/',
-  //FIRMA_ELECTRONICA_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/firma_electronica_mid/v1/',
-  FIRMA_ELECTRONICA_SERVICE: 'http://127.0.0.1:4000/v1/',
+  FIRMA_ELECTRONICA_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/firma_electronica_mid/v1/',
 };
