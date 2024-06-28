@@ -5,6 +5,18 @@
         <mat-label>Firma</mat-label>
         <input matInput placeholder="Firma" [(ngModel)]="firmaId">
     </mat-form-field>
+    <!--INICIO NUEVO INPUT-->
+    <div class="input-archivo">
+        <input id="inputDoc" type="file" accept="application/pdf" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <div class="file-upload">
+            {{fileName || "Cargue su documento"}}
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click()">
+                <mat-icon>attach_file</mat-icon>
+            </button>
+        </div>
+        <br><br>
+    </div>
+    <!--FIN NUEVO INPUT-->
     <mat-card-actions>
         <button mat-raised-button color="primary" class="float-right text-uppercase" (click)="checkFirma()">
             {{'GLOBAL.verificarFirma' | translate}}
@@ -14,8 +26,25 @@
 
 <mat-card *ngIf="doc" class="container file">
     <h2>Verificación de firma electrónica</h2>
-    <h5>Este es el documento encontrado con la firma ingresada</h5>
-    <iframe width="100%" height="100%" [src]="doc"></iframe>
+    <div class="tituloTrue" *ngIf="fileEqual">
+        <h5>Este es el documento encontrado con la firma ingresada</h5>
+    </div>
+    <div class="tituloFalse" *ngIf="!fileEqual">
+        <h5>Los documentos no coinciden</h5>
+    </div>
+    <!-- Si el documento subido y el documento en nuxeo son iguales-->
+    <iframe *ngIf="fileEqual" width="100%" height="100%" [src]="doc"></iframe>
+    <!-- Si el documento subido y el documento en nuxeo son distintos-->
+    <div class="contDoc" *ngIf="!fileEqual">
+        <div class="contMitad">
+            <h1>Documento cargado</h1>
+            <iframe width="100%" height="100%" [src]="pdfURL"></iframe>
+        </div>
+        <div class="contMitad" >
+            <h1>Documento encontrado</h1>
+            <iframe width="100%" height="100%" [src]="doc"></iframe>
+        </div>
+    </div>
     <mat-card-actions>
         <button mat-raised-button color="primary" class="float-right text-uppercase" (click)="onVolver()">
             {{'GLOBAL.volver' | translate}}
