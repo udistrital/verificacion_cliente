@@ -21,3 +21,24 @@ h5 {
     text-align: justify;
     text-justify: inter-word;
 }
+
+.contDoc {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.contDoc h1 {
+    color:black;
+}
+
+.file-input {
+    display: none;
+}
+
+.tituloFalse h5 {
+    color: red;
+}
+

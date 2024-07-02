@@ -5,7 +5,7 @@ import { PopUpManager } from '../../managers/popUpManager';
 @Injectable({
   providedIn: 'root',
 })
-export class GestorDocumentalService {
+export class FirmaElectronicaService {
 
   constructor(
     private rqManager: RequestManager,
@@ -25,14 +25,16 @@ export class GestorDocumentalService {
     });
   }
 
-  getOne(firma: string) {
-    this.rqManager.setPath('GESTOR_DOCUMENTAL_SERVICE');
+  getOne(firma: string, fileUp: string, urlFileUp: string) {
+    this.rqManager.setPath('FIRMA_ELECTRONICA_SERVICE');
     const payload = [
       {
         firma,
+        fileUp,
+        urlFileUp,
       },
     ];
-    return this.rqManager.post('document/verify', payload);
+    return this.rqManager.post('firma_electronica/verify', payload);
   }
 
 }
