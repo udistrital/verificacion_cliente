@@ -84,7 +84,7 @@ export class VerificarComponent implements OnInit {
         Swal.showLoading();
       },
     });
-    if (this.base64Output == null || this.base64Output == undefined) {
+    if (this.base64Output == null) {
       this.base64Output = '';
     }
     if (this.pdfURL == null) {
