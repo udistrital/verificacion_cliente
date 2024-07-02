@@ -102,20 +102,19 @@ export class VerificarComponent implements OnInit {
         Swal.close();
         if (!this.fileEqual) {
           this.popUpMan.showCautionAlert('Los documentos no coinciden');
+        } else {
+          this.popUpMan.showSuccessAlert('Se ha verificado correctamente la firma con el documento');
         }
       });
   }
 
 
   public onVolver() {
-    const inDoc = document.getElementById('inputDoc') as HTMLInputElement;
-    if (inDoc) {
-      inDoc.value = '';
-    }
     this.doc = undefined;
     this.firmaId = '';
     this.fileName = '';
     this.pdfURL = '';
+    this.base64Output = '';
   }
 
 }

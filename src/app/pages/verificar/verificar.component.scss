@@ -27,11 +27,12 @@ h5 {
     display: grid;
     grid-template-columns: 50% 50%;
     height: 100%;
-    text-align: center;
 }
 
-.contDoc h1 {
-    color:black;
+.contDoc h5 {
+    color:#aeaeae;
+    font-weight: bolder;
+    text-align: center !important;
 }
 
 .file-input {
