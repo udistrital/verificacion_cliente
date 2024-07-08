@@ -1,4 +1,6 @@
 FROM node:14
+# Instalar versión especifica de npm
+RUN npm install -g npm@8
 WORKDIR /app/src
 COPY *.json *.js ./
 RUN npm install
