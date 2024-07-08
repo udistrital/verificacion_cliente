@@ -59,7 +59,6 @@ steps:
     branch: # Colocar las ramas que requieran npm
       - dependabot/**
       - develop
-      - feature/*
       - hotfix/*
       - master
       - release/*
@@ -84,7 +83,6 @@ steps:
   when:
     branch:
     - develop
-    - feature/*
     - hotfix/*
     event:
     - push
@@ -113,7 +111,6 @@ steps:
     branch:
     - dependabot/**
     - develop
-    - feature/*
     - release/*
     event:
     - push
