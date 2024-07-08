@@ -5,13 +5,22 @@ Cliente que permite realizar la verificación de la validez tanto de un hash de 
 Consume métodos de la [API mid firma electrónica](https://github.com/udistrital/firma_electronica_mid) para poder tanto confirmar la existencia de la firma y el muestreo del documento asociado, o bien de comparar un documento subido con el que se tiene registrado en el sistema para verificar si son idénticos. El sistema permite mostrar los documentos en el cliente dependiendo del caso.
 
 Tiene como limitación el hecho de que sólo recibe documentos pdf y estos deben tener un origen digital, es decir, no se pueden subir pdfs escaneados, ya que el sistema no los reconocerá correctamente.
-## Especificaciónes técnicas
-### Tecnologías implementadas y versiones
+## Variables de Entorno
+```
+ASSETS_SERVICE: 'https://pruebasassets.portaloas.udistrital.edu.co/',AUTENTICACION_MID: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/autenticacion_mid/v1/',
+CONF_MENU_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/configuracion_crud_api/v1/menu_opcion_padre/ArbolMenus/',
+CONFIGURACION_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/configuracion_crud_api/v1/',
+DOCUMENTO_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/documento_crud/v2/',
+GESTOR_DOCUMENTAL_SERVICE: 'https://autenticacion.portaloas.udistrital.edu.co/apioas/gestor_documental_mid/v1/'
+```
+
+## Especificaciones Técnicas
+### Tecnologías Implementadas y Versiones
 
 - [Angular 8.3.29](https://angular.dev)
 - [Node 14.15.4](https://nodejs.org/en)
 
-### Ejecución del proyecto
+### Ejecución del Proyecto
 
 1. **Clonar el repositorio:**
 ```git clone https://github.com/udistrital/verificacion_cliente.git``` 
@@ -34,7 +43,7 @@ Tiene como limitación el hecho de que sólo recibe documentos pdf y estos deben
 | -- | -- | -- |
 |[![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/verificacion_cliente/status.svg?ref=refs/heads/develop)](https://hubci.portaloas.udistrital.edu.co/udistrital/verificacion_cliente)|[![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/verificacion_cliente/status.svg?ref=refs/heads/release/0.0.1)](https://hubci.portaloas.udistrital.edu.co/udistrital/verificacion_cliente)|[![Build Status](https://hubci.portaloas.udistrital.edu.co/api/badges/udistrital/verificacion_cliente/status.svg?ref=refs/heads/master)](https://hubci.portaloas.udistrital.edu.co/udistrital/verificacion_cliente)
 
-## License
+## Licencia
 
 This file is part of verificacion_cliente.
 
@@ -43,3 +52,4 @@ verificacion_cliente is free software: you can redistribute it and/or modify it 
 verificacion_cliente is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with verificacion_cliente. If not, see https://www.gnu.org/licenses/.
+
