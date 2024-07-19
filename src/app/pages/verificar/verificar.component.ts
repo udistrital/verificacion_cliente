@@ -72,6 +72,7 @@ export class VerificarComponent implements OnInit {
   // fin captura documento
   public checkFirma() {
     if (!this.firmaId || this.firmaId.length !== 36) {
+      this.popUpMan.showCautionAlert('Debe ingresar una firma válida');
       return;
     }
     if (this.base64Output == null) {
