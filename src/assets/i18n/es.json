@@ -46,6 +46,9 @@
   },
   "GLOBAL": {
     "verificarFirma": "Verificar Firma",
+    "firmaInvalida": "Debe ingresar una firma válida",
+    "firmaVerificada": "Se ha verificado correctamente la firma con el documento",
+    "docsComp": "Los documentos no coinciden",
     "volver": "Volver",
     "Errores": {
       "ErrorTercero": "Ingrese un tercero válido",
