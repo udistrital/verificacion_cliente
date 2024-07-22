@@ -46,7 +46,7 @@ export class PopUpManager {
         let translatedText = '';
         let errorTipo = 'warning';
         let operacionTipo = 'Atención';
-        switch(text){
+        switch (text) {
             case 1:
                 translatedText = this.translate.instant('GLOBAL.firmaInvalida');
                 break;
@@ -56,7 +56,7 @@ export class PopUpManager {
             case 3:
                 translatedText = this.translate.instant('GLOBAL.firmaVerificada');
                 errorTipo = 'success';
-                operacionTipo = 'GLOBAL.operacion_exitosa'
+                operacionTipo = 'GLOBAL.operacion_exitosa';
                 break;
         }
         return this.showAlert(errorTipo, translatedText,
