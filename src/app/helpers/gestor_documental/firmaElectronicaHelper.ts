@@ -34,7 +34,7 @@ export class FirmaElectronicaService {
         urlFileUp,
       },
     ];
-    return this.rqManager.post('firma_electronica/verify', payload);
+    return this.rqManager.post('verify', payload);
   }
 
 }
