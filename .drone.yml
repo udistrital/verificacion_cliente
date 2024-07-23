@@ -110,7 +110,6 @@ steps:
   when:
     branch:
     - dependabot/**
-    - develop
     - release/*
     event:
     - push

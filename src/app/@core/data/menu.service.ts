@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { TranslateService} from '@ngx-translate/core';
 import { ConfiguracionService } from './configuracion.service';
-import { RequestManager } from '../../managers/requestManager';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Menu, TipoOpcion } from './models/configuracion_crud';

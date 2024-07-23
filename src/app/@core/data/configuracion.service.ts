@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RequestManager } from '../../managers/requestManager';
 import { Menu, Parametro, TipoOpcion } from './models/configuracion_crud';
-import { Observable, Subject } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ConfiguracionService {

@@ -5,7 +5,6 @@ import { Md5 } from 'ts-md5';
 import { BehaviorSubject, of } from 'rxjs';
 import Swal from 'sweetalert2';
 import { delay, retry } from 'rxjs/operators';
-import { HostListener } from '@angular/core';
 import { environment } from '../../../environments/environment';
 @Injectable({
     providedIn: 'root',
@@ -43,7 +42,6 @@ export class ImplicitAutenticationService {
     }
     init(entorno): any {
         this.environment = entorno;
-        const id_token = window.localStorage.getItem('id_token');
 
         if (window.localStorage.getItem('id_token') === null) {
             const params = {}, queryString = location.hash.substring(1), regex = /([^&=]+)=([^&]*)/g;
@@ -81,8 +79,6 @@ export class ImplicitAutenticationService {
                         // window.location = params.state;
                     } else if (req.status === 400) {
                         window.alert('There was an error processing the token.');
-                    } else {
-
                     }
                 }
             };

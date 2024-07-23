@@ -69,7 +69,7 @@ $mat-mytheme: mat-light-theme($mat-mytheme-primary, $mat-mytheme-accent);
 
   // loading progress bar
   @include ngx-pace-theme();
-};
+}
 
 .error-field {
   color:#005caf;
