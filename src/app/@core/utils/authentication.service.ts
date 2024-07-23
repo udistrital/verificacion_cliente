@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { interval } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Md5 } from 'ts-md5/dist/md5';
+import { Console } from 'console';
 
 @Injectable()
 export class AutenticationService {
@@ -60,7 +61,7 @@ export class AutenticationService {
 
     clearUrl() {
         const uri = window.location.toString();
-        if (uri.indexOf('?') > 0) {
+        if (uri.includes('?')) {
             const clean_uri = uri.substring(0, uri.indexOf('?'));
             window.history.replaceState({}, document.title, clean_uri);
         }
@@ -145,12 +146,9 @@ export class AutenticationService {
 
     refresh() {
         this.params = environment.TOKEN;
-        const url = ''; // this.params.REFRESH_TOKEN + '?' +
-        'grant_type=' + encodeURIComponent('refresh_token') + '&' +
-            'refresh_token=' + encodeURIComponent(window.sessionStorage.getItem('refresh_token')) + '&' +
-            'redirect_uri=' + encodeURIComponent(window.location.href);
+        const url = '';
         const dato = {};
-
+        
         this.post(url, dato, this.setting_basic).subscribe(
             data => {
                 for (const i in data) {

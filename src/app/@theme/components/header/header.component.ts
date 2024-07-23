@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { NbMenuService, NbSidebarService } from '@nebular/theme';
-import { AnalyticsService } from '../../../@core/utils';
 import { LayoutService } from '../../../@core/utils';
 import { ImplicitAutenticationService } from '../../../@core/utils/implicit_autentication.service';
 import { Subscription, Observable } from 'rxjs';
