@@ -147,7 +147,7 @@ export class AutenticationService {
     refresh() {
         this.params = environment.TOKEN;
         const url = '';
-        const dato = {};        
+        const dato = {};
         this.post(url, dato, this.setting_basic).subscribe(
             data => {
                 for (const i in data) {
