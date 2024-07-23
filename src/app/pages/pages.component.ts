@@ -7,7 +7,6 @@ import { ImplicitAutenticationService } from './../@core/utils/implicit_autentic
 import { environment } from '../../environments/environment';
 import { NbSidebarService } from '@nebular/theme';
 import { RouteConfigLoadStart, Router } from '@angular/router';
-import { Menu } from '../@core/data/models/configuracion_crud';
 import { ConfiguracionService } from '../@core/data/configuracion.service';
 
 
@@ -26,7 +25,7 @@ export class PagesComponent implements OnInit {
   public menu = [];
   hijo: any;
   hijo2: any;
-  rol: String;
+  rol: string;
   dataMenu: any;
   roles: any;
 

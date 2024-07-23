@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { TranslateService} from '@ngx-translate/core';
 import { FirmaElectronicaService } from '../../helpers/gestor_documental/firmaElectronicaHelper';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, ReplaySubject } from 'rxjs';

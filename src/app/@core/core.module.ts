@@ -1,4 +1,3 @@
-import { HttpErrorInterceptor } from './_Interceptor/error.interceptor';
 import { AuthInterceptor } from './_Interceptor/auth.Interceptor';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
