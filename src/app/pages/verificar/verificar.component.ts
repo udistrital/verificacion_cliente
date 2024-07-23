@@ -72,6 +72,7 @@ export class VerificarComponent implements OnInit {
   // fin captura documento
   public checkFirma() {
     if (!this.firmaId || this.firmaId.length !== 36) {
+      this.popUpMan.showSignAlert(1);
       return;
     }
     if (this.base64Output == null) {
@@ -101,9 +102,9 @@ export class VerificarComponent implements OnInit {
         }
         Swal.close();
         if (!this.fileEqual) {
-          this.popUpMan.showCautionAlert('Los documentos no coinciden');
+          this.popUpMan.showSignAlert(2);
         } else {
-          this.popUpMan.showSuccessAlert('Se ha verificado correctamente la firma con el documento');
+          this.popUpMan.showSignAlert(3);
         }
       });
   }

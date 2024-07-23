@@ -41,4 +41,25 @@ export class PopUpManager {
         return this.showAlert('warning', text,
             this.translate.instant('Atención'));
     }
+
+    public showSignAlert (text) {
+        let translatedText = '';
+        let errorTipo = 'warning';
+        let operacionTipo = 'Atención';
+        switch (text) {
+            case 1:
+                translatedText = this.translate.instant('GLOBAL.firmaInvalida');
+                break;
+            case 2:
+                translatedText = this.translate.instant('GLOBAL.docsComp');
+                break;
+            case 3:
+                translatedText = this.translate.instant('GLOBAL.firmaVerificada');
+                errorTipo = 'success';
+                operacionTipo = 'GLOBAL.operacion_exitosa';
+                break;
+        }
+        return this.showAlert(errorTipo, translatedText,
+            this.translate.instant(operacionTipo));
+    }
 }
