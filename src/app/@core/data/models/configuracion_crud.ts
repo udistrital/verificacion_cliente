@@ -102,7 +102,7 @@ export class PerfilXMenuOpcion {
 }
 
 export enum TipoOpcion {
-  Menu = 'Menú', //NOSONAR
+  Menu = 'Menú', // NOSONAR
   Accion = 'Acción',
   Boton = 'Botón',
 }
