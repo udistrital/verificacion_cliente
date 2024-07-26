@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
 import { TranslateService} from '@ngx-translate/core';
 import { FirmaElectronicaService } from '../../helpers/gestor_documental/firmaElectronicaHelper';
@@ -94,7 +94,7 @@ export class VerificarComponent implements OnInit {
       .subscribe(async (data: any) => {
         const url = await this.firmaElectronicaService.getUrlFile(data.res[0].file, data.res[0]['file:content']['mime-type']);
         this.fileEqual = await data.res[0].fileEqual;
-        this.pdfURL = await this.sanitization.bypassSecurityTrustResourceUrl(data.res[0].urlFileUp);
+        this.pdfURL = this.sanitization.bypassSecurityTrustResourceUrl(data.res[0].urlFileUp);
         if (url) {
           console.info(url);
           this.doc = this.sanitization.bypassSecurityTrustResourceUrl(url.toString());

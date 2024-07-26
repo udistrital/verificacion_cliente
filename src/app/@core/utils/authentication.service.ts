@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { interval } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { Md5 } from 'ts-md5/dist/md5';
-import { Console } from 'console';
 
 @Injectable()
 export class AutenticationService {
