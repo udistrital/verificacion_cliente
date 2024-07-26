@@ -33,7 +33,7 @@
         <h5>Los documentos no coinciden</h5>
     </div>
     <!-- Si el documento subido y el documento en nuxeo son iguales-->
-    <iframe *ngIf="fileEqual" width="100%" height="100%" [src]="doc"></iframe>
+    <iframe *ngIf="fileEqual" width="100%" height="100%" [src]="doc" title="Documento encontrado"></iframe>
     <!-- Si el documento subido y el documento en nuxeo son distintos-->
     <div class="contDoc" *ngIf="!fileEqual">
         <div class="contMitad">
@@ -42,7 +42,7 @@
         </div>
         <div class="contMitad" >
             <h5>Este es el documento ingresado</h5>
-            <iframe width="100%" height="100%" [src]="pdfURL"></iframe>
+            <iframe width="100%" height="100%" [src]="pdfURL" title="Documento ingresado"></iframe>
         </div>
     </div>
     <mat-card-actions>
