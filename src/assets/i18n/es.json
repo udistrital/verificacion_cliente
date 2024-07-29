@@ -46,6 +46,7 @@
   },
   "GLOBAL": {
     "verificarFirma": "Verificar Firma",
+    "codigoVerificacion": "Código de Verificación",
     "firmaInvalida": "Debe ingresar una firma válida",
     "firmaVerificada": "Se ha verificado correctamente la firma con el documento",
     "docsComp": "Los documentos no coinciden",
