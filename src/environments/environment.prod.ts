@@ -13,7 +13,7 @@ export const environment = {
   ASSETS_SERVICE: 'https://pruebasassets.portaloas.udistrital.edu.co/',
   TOKEN: {
     AUTORIZATION_URL: 'https://autenticacion.portaloas.udistrital.edu.co/oauth2/authorize',
-    CLIENTE_ID: '4h6flKY9tkUfQyMIf2EsZoF9ERoa',
+    CLIENTE_ID: 'GZ4SPANURYxuDnFftHpNliRCU3sa',
     RESPONSE_TYPE: 'id_token token',
     SCOPE: 'openid email role documento',
     REDIRECT_URL: 'https://verificacion.portaloas.udistrital.edu.co',
