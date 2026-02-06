@@ -1431,6 +1431,10 @@
         "successTtl": "Inmueble Actualizado",
         "successTxt": "El inmueble fue actualizado correctamente"
       }
+    },
+    "mensajeRecordatorio": {
+      "titulo": "Recordatorio: ",
+      "cuerpo": "Recuerde que la validación del archivo solo es posible si se descargó usando el ícono de descarga, evitando la opción de imprimir."
     }
   }
 }
