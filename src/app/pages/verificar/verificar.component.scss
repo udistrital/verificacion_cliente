@@ -43,3 +43,29 @@ h5 {
     color: red;
 }
 
+.recordatorio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 40%;
+}
+
+.form-recordatorio {
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  display: block;
+  text-align: center;
+  white-space: normal;
+}
+
+.recordatorio-bold {
+  font-weight: 600;
+}
+
+.icon-descarga {
+  flex-shrink: 0;
+  font-size: 22px;
+  color: #7e7e7e;
+  line-height: 1;
+}
