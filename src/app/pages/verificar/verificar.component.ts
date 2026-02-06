@@ -32,9 +32,19 @@ export class VerificarComponent implements OnInit {
     private popUpMan: PopUpManager,
   ) { }
 
-  ngOnInit() {
-    this.recordatorioTitulo = this.translate.instant('GLOBAL.mensajeRecordatorio.titulo');
-    this.recordatorioMensaje = this.translate.instant('GLOBAL.mensajeRecordatorio.cuerpo');
+  ngOnInit(): void {
+    this.translate
+      .get([
+        'GLOBAL.mensajeRecordatorio.titulo',
+        'GLOBAL.mensajeRecordatorio.cuerpo'
+      ])
+      .subscribe(translations => {
+        this.recordatorioTitulo =
+          translations['GLOBAL.mensajeRecordatorio.titulo'];
+
+        this.recordatorioMensaje =
+          translations['GLOBAL.mensajeRecordatorio.cuerpo'];
+      });
   }
 
   onFileSelected(event) {
