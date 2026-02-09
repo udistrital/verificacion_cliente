@@ -22,6 +22,7 @@ export class VerificarComponent implements OnInit {
   blob?: Blob;
   fileEqual: any;
   swalAlert = require('sweetalert2');
+
   constructor(
     private translate: TranslateService,
     private firmaElectronicaService: FirmaElectronicaService,
@@ -29,9 +30,9 @@ export class VerificarComponent implements OnInit {
     private popUpMan: PopUpManager,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(){
   }
-  // Inicio captura documento
+
   onFileSelected(event) {
     const file: File = event.target.files[0];
     if (file) {
