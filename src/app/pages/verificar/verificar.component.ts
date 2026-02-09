@@ -22,8 +22,6 @@ export class VerificarComponent implements OnInit {
   blob?: Blob;
   fileEqual: any;
   swalAlert = require('sweetalert2');
-  recordatorioTitulo: string;
-  recordatorioMensaje: string;
 
   constructor(
     private translate: TranslateService,
@@ -32,9 +30,7 @@ export class VerificarComponent implements OnInit {
     private popUpMan: PopUpManager,
   ) { }
 
-  ngOnInit() {
-    this.recordatorioTitulo = this.translate.instant('GLOBAL.mensajeRecordatorio.titulo');
-    this.recordatorioMensaje = this.translate.instant('GLOBAL.mensajeRecordatorio.cuerpo');
+  ngOnInit(){
   }
 
   onFileSelected(event) {
