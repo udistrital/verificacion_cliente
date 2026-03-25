@@ -8,20 +8,19 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  constructor(private autenticacion: ImplicitAutenticationService) { }
   appname = 'verificacion';
   basePathAssets = environment.ASSETS_SERVICE;
+
   @Input('isloading') isloading: boolean = false;
   @Output() loginEvent: EventEmitter<any> = new EventEmitter();
+
+  constructor(private autenticacion: ImplicitAutenticationService) {}
 
   login() {
     this.isloading = true;
     this.loginEvent.next('clicked');
-    this.autenticacion.login(false);
-  }
-  ngOnInit(): void {
-
+    this.autenticacion.login();
   }
 
+  ngOnInit(): void {}
 }

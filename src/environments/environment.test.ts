@@ -9,7 +9,8 @@ export const environment = {
   production: false,
   ...WSO2,
 
-  ASSETS_SERVICE: 'https://pruebasassets.portaloas.udistrital.edu.co/',
+  //ASSETS_SERVICE: 'https://pruebasassets.portaloas.udistrital.edu.co/',
+  ASSETS_SERVICE: 'http://127.0.0.1:8081/',
   TOKEN: {
     AUTORIZATION_URL: 'https://autenticacion.portaloas.udistrital.edu.co/oauth2/authorize',
     CLIENTE_ID: 'lhH31blGfCd4Lk0tCXn30e8r8v8a',

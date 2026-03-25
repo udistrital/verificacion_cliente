@@ -12,14 +12,13 @@ import { Subscription, Observable } from 'rxjs';
   templateUrl: './header.component.html',
 })
 export class HeaderComponent implements OnInit {
-
   @Input() position = 'normal';
 
   user: any;
   title: any;
 
   itemClick: Subscription;
-  liveTokenValue: boolean = false;
+  liveTokenValue = false;
   username = '';
   userMenu = [{ title: 'ver todas', icon: 'fa fa-list' }];
   public noNotify: any = '0';
@@ -27,49 +26,57 @@ export class HeaderComponent implements OnInit {
   toggle: boolean;
   clientes$: Observable<boolean>;
 
-
-  constructor(private sidebarService: NbSidebarService,
+  constructor(
+    private sidebarService: NbSidebarService,
     private menuService: NbMenuService,
     private router: Router,
     private layoutService: LayoutService,
     private autenticacion: ImplicitAutenticationService,
     public translate: TranslateService,
   ) {
-
     this.translate = translate;
     this.toggle = false;
+
     this.itemClick = this.menuService.onItemClick()
       .subscribe((event) => {
         this.onContecxtItemSelection(event.item.title);
       });
 
     this.autenticacion.user$.subscribe((data: any) => {
-      const { user, userService } = data;
-      console.info({ user, userService });
-      this.username = typeof user.email !== 'undefined' ? user.email : typeof userService.email !== 'undefined' ? userService.email : '';
-      this.liveTokenValue = this.username !== '';
+      console.info('Usuario en header:', data);
+
+      if (data) {
+        this.username =
+          data.nombre_usuario ||
+          data.correo_electronico ||
+          data.id_usuario ||
+          '';
+
+        this.liveTokenValue = this.username !== '';
+      } else {
+        this.username = '';
+        this.liveTokenValue = false;
+      }
     });
-
   }
 
-
-  ngOnInit() {
-    // this.userService.getUsers()
-    //   .subscribe((users: any) => this.user = users.nick);
-    // this.clientes$ = this.catalogoService.getEstado$();
-    // this.clientes$.subscribe(cliente => this.toggle = cliente);
-  }
+  ngOnInit() {}
 
   useLanguage(language: string) {
     this.translate.use(language);
   }
 
   liveToken() {
-    if (this.autenticacion.live()) {
-      this.liveTokenValue = this.autenticacion.live();
-      this.username = (this.autenticacion.getPayload()).sub;
-    }
-    return this.autenticacion.live();
+    this.liveTokenValue = this.autenticacion.live();
+    const payload = this.autenticacion.getPayload();
+    this.username = payload
+      ? (payload.nombre_usuario || payload.correo_electronico || payload.id_usuario || '')
+      : '';
+    return this.liveTokenValue;
+  }
+
+  login() {
+    this.autenticacion.login();
   }
 
   onContecxtItemSelection(title) {
@@ -81,18 +88,19 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.autenticacion.logout('from header');
   }
+
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, 'menu-sidebar');
-    // this.catalogoService.CambiarEstado()
     this.layoutService.changeLayoutSize();
     return false;
   }
+
   toggleNotifications(): boolean {
     this.sidebarService.toggle(false, 'notifications-sidebar');
     return false;
   }
+
   goToHome() {
     this.menuService.navigateHome();
   }
-
 }

@@ -17,22 +17,25 @@ const urlStyles = `@import url("${ environment.ASSETS_SERVICE }urano-style.css")
   template: '<router-outlet></router-outlet>',
 })
 export class AppComponent implements OnInit {
-  constructor(private analytics: AnalyticsService,
+  constructor(
+    private analytics: AnalyticsService,
     private translateService: TranslateService,
     private route: Router,
-    private autenticacion: ImplicitAutenticationService) {
+    private autenticacion: ImplicitAutenticationService,
+  ) {
     this.autenticacion.user$.subscribe((data: any) => {
-      const { user, userService } = data;
-      if (user && userService) {
+      if (data) {
         this.route.navigateByUrl('pages');
       }
     });
   }
+
   ngOnInit(): void {
     this.analytics.trackPageViews();
     this.translateService.addLangs(['es', 'en']);
     this.translateService.setDefaultLang('es');
-    // this.translateService.use(this.translateService.getBrowserLang());
     this.translateService.use('es');
+
+    this.autenticacion.init();
   }
 }

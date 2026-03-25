@@ -13,7 +13,6 @@ import { StateService } from './utils/state.service';
 import { ImplicitAutenticationService } from './utils/implicit_autentication.service';
 import { LoaderService } from './utils/load.service';
 import { UtilidadesService } from './utils/utilidades.service';
-import { AutenticationService } from './utils/authentication.service';
 
 export const NB_CORE_PROVIDERS = [
   ...DataModule.forRoot().providers,
@@ -23,7 +22,6 @@ export const NB_CORE_PROVIDERS = [
   ImplicitAutenticationService,
   LoaderService,
   UtilidadesService,
-  AutenticationService,
 ];
 
 @NgModule({

@@ -93,14 +93,7 @@ export class PagesComponent implements OnInit {
             text: this.translate.instant('GLOBAL.errorPermisosTxt'),
             confirmButtonText: this.translate.instant('GLOBAL.aceptar'),
             onAfterClose: () => {
-              window.location.href =
-                environment.TOKEN.SIGN_OUT_URL +
-                '?id_token_hint=' +
-                window.localStorage.getItem('id_token') +
-                '&post_logout_redirect_uri=' +
-                environment.TOKEN.SIGN_OUT_REDIRECT_URL +
-                '&state=' +
-                window.localStorage.getItem('state');
+              this.autenticacion.logout();
             },
           });
         } else {
