@@ -14,7 +14,7 @@ export const environment = {
   AUTENTICACION_MID: 'http://localhost:8567/v1/',
 
   AUTH: {
-    APP_CODE: 'verificacionInternaTest',
+    CLIENTE_ID: 'verificacionInternaTest',
     LOGIN_URL: 'http://localhost:8000/v1/auth/login',
     LOGOUT_URL: 'http://localhost:8000/v1/auth/logout',
     ME_URL: 'http://localhost:8000/v1/me',

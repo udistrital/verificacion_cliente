@@ -53,12 +53,12 @@ export class ImplicitAutenticationService {
 
   public login(_flag?: boolean): void {
     window.location.href =
-      `${this.environment.AUTH.LOGIN_URL}?app=${this.environment.AUTH.APP_CODE}`;
+      `${this.environment.AUTH.LOGIN_URL}?client_id=${this.environment.AUTH.CLIENTE_ID}`;
   }
 
   public logout(_action?: string): void {
     window.location.href =
-      `${this.environment.AUTH.LOGOUT_URL}?app=${this.environment.AUTH.APP_CODE}`;
+      `${this.environment.AUTH.LOGOUT_URL}?client_id=${this.environment.AUTH.CLIENTE_ID}`;
   }
 
   public live(): boolean {
